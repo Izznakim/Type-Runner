@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6970110070269255459}
   - component: {fileID: -8239031311196637328}
   - component: {fileID: -8602146190004865113}
+  - component: {fileID: -7459152483484007014}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 398341d8ed58d254baa07bc9457d3ea6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -180,6 +181,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7459152483484007014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069777783800643835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacabd6b318aef6428fe4f5d350e3735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOffScreen
+  offsetBehindPlayer: -15
 --- !u!1 &8151727296293037388
 GameObject:
   m_ObjectHideFlags: 0

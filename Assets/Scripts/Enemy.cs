@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
    private void GenerateWord()
    {
-      string[] wordList = { "word", "rabbit", "stone", "table", "chair" };
+      string[] wordList = { "word", "rabbit", "stone", "table", "chair", "123", "456", "789", "`0-=", "[]\\", ";'", ",./", "~!@#$", "%^&*()", "_+{}|", ":\"<>?"};
       enemyWord = wordList[Random.Range(0, wordList.Length)];
       wordText.text = enemyWord;
    }

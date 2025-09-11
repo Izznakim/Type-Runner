@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 404086316}
   - component: {fileID: 404086315}
   - component: {fileID: 404086317}
+  - component: {fileID: 404086318}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -271,7 +272,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 398341d8ed58d254baa07bc9457d3ea6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -307,6 +308,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &404086318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404086314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacabd6b318aef6428fe4f5d350e3735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOffScreen
+  offsetBehindPlayer: -15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +739,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 398341d8ed58d254baa07bc9457d3ea6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -832,6 +846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b961d28b748bbf4ba435951b278a341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordManager
+  screenPadding: 1
+  behindTolerance: 0.25
 --- !u!4 &2077032960
 Transform:
   m_ObjectHideFlags: 0
