@@ -11,7 +11,6 @@ public class SpawnManager : MonoBehaviour
    [Header("References")]
    [SerializeField] private Transform player;
    [SerializeField] private Transform startGround;
-   [SerializeField] private float spawnOffset = 20f;
    [SerializeField] private float platformLength = 10f;
 
    private float lastSpawnX;

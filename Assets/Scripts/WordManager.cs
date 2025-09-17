@@ -85,7 +85,7 @@ public class WordManager : MonoBehaviour
             closest = obstacle;
          }
       }
-
+      
       return closest;
    }
 
@@ -124,7 +124,7 @@ public class WordManager : MonoBehaviour
       Obstacle currentObstacle = FindClosestObstacle();
       if (currentObstacle != null && inputChar == currentObstacle.GetLetter())
       {
-         Destroy(currentObstacle.gameObject);
+         currentObstacle.OnCorrectType();
          return;
       }
       // 2. Enemy

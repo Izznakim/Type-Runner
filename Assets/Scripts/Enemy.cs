@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
    private void GenerateWord()
    {
-      string[] wordList = { "word", "rabbit", "stone", "table", "chair", "123", "456", "789", "`0-=", "[]\\", ";'", ",./", "~!@#$", "%^&*()", "_+{}|", ":\"<>?"};
+      string[] wordList = { "word", "rabbit", "stone", "table", "chair", "123", "`0-=", "~!@#$" };
       enemyWord = wordList[Random.Range(0, wordList.Length)];
       wordText.text = enemyWord;
    }
@@ -34,16 +34,25 @@ public class Enemy : MonoBehaviour
 
    public void RemoveLetter()
    {
-      if (enemyWord.Length > 0)
+      if (!string.IsNullOrEmpty(enemyWord))
       {
          enemyWord = enemyWord[1..];
-         wordText.text = enemyWord;
+         if (wordText != null) wordText.text = enemyWord;
+
+         // Score tiap huruf
+         ScoreManager.instance.AddScore(20);
+
+         // Floating text feedback
+         FloatingTextSpawner.instance.SpawnText("+20", transform.position, Color.yellow);
+
+         if (enemyWord.Length == 0)
+         {
+            // Floating text feedback
+            FloatingTextSpawner.instance.SpawnText("Enemy Down!", transform.position, Color.red);
+            Die();
+         }
       }
 
-      if (enemyWord.Length == 0)
-      {
-         Die();
-      }
    }
 
    private void Die()
