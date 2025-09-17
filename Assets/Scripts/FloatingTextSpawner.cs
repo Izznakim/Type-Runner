@@ -19,8 +19,8 @@ public class FloatingTextSpawner : MonoBehaviour
       if (floatingTextPrefab == null) return;
 
       GameObject go = Instantiate(floatingTextPrefab, position, Quaternion.identity);
-      FloatingText ft = go.GetComponent<FloatingText>();
-      if (ft != null)
+      /*FloatingText ft = go.GetComponent<FloatingText>();*/
+      if (go.TryGetComponent<FloatingText>(out var ft))
       {
          ft.Setup(message, color);
       }
