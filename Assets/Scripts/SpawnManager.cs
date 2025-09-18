@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
       player = GameObject.FindGameObjectWithTag("Player").transform;
       lastSpawnX = player.position.x - platformLength;
 
-      for (int i = 0; i < 5; i++)
+      for (int i = 0; i < 3; i++)
       {
          /*SpawnPlatformSegment();*/
          SpawnPlatform(platformPrefab);
@@ -39,12 +39,25 @@ public class SpawnManager : MonoBehaviour
       {
          float roll = Random.value;
 
-         if (roll < 0.2f)
+         if (roll < 0.3f)
+            // 30% gap bawah
             /*SpawnPlatformSegment();*/
             SpawnPlatform(platformGapPrefab);
          else if (roll < 0.4f)
+            // 10% platform atas
             SpawnPlatform(platformUpperPrefab, true);
+         else if (roll < 0.5f)
+         {
+            // 10% platform atas + bawah (normal)
+            Vector3 basePos = new Vector3(lastSpawnX + platformLength, -2, 0);
+
+            Instantiate(platformPrefab, basePos, Quaternion.identity);
+            Instantiate(platformUpperPrefab, basePos + Vector3.up * upperPlatformHeight, Quaternion.identity);
+
+            lastSpawnX += platformLength;
+         }
          else
+            // 50% platform bawah
             SpawnPlatform(platformPrefab);
       }
    }
