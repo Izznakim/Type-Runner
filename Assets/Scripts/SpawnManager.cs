@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
    [Header("Prefabs")]
    [SerializeField] private GameObject platformPrefab;
    [SerializeField] private GameObject platformGapPrefab;
+   [SerializeField] private GameObject platformUpperPrefab;
    /*[SerializeField] private GameObject obstaclePrefab;
    [SerializeField] private GameObject enemyPrefab;*/
 
@@ -14,6 +15,7 @@ public class SpawnManager : MonoBehaviour
    [SerializeField] private Transform startGround;*/
    [SerializeField] private float spawnDistance = 10f;
    [SerializeField] private float platformLength = 5f;
+   [SerializeField] private float upperPlatformHeight = 3f;
 
    private Transform player;
    private float lastSpawnX;
@@ -35,22 +37,25 @@ public class SpawnManager : MonoBehaviour
    {
       if (player.position.x > lastSpawnX - (spawnDistance * 2))
       {
-         /*SpawnPlatformSegment();*/
-         SpawnPlatform(ChoosePlatformPrefab());
+         float roll = Random.value;
+
+         if (roll < 0.2f)
+            /*SpawnPlatformSegment();*/
+            SpawnPlatform(platformGapPrefab);
+         else if (roll < 0.4f)
+            SpawnPlatform(platformUpperPrefab, true);
+         else
+            SpawnPlatform(platformPrefab);
       }
    }
 
-   private GameObject ChoosePlatformPrefab()
-   {
-      // 30% chance spawn gap, 70% normal platform
-      return Random.value < 0.3 ? platformGapPrefab : platformPrefab;
-   }
-
-   private void SpawnPlatform(GameObject prefab)
+   private void SpawnPlatform(GameObject prefab, bool isUpper = false)
    {
       if (prefab == null) return;
 
       Vector3 spawnPos = new Vector3(lastSpawnX + platformLength, -2, 0);
+      if (isUpper) { spawnPos.y += upperPlatformHeight; }
+
       Instantiate(prefab, spawnPos, Quaternion.identity);
       lastSpawnX += platformLength;
    }
