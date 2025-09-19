@@ -151,6 +151,7 @@ MonoBehaviour:
   platformPrefab: {fileID: 7329442695026827016, guid: f4f82f8f429563e40be9e5b17a9c6c57, type: 3}
   platformGapPrefab: {fileID: 2369659719098381018, guid: 3dee3eaea2cdf444e927ac6ba6f65f2a, type: 3}
   platformUpperPrefab: {fileID: 2553225437932838330, guid: ec9739d7e69a7a34d95beae4c3aad5b2, type: 3}
+  platformUpperGapPrefab: {fileID: 143222540391985230, guid: 716c6b5c20cc3c549a9870953774d918, type: 3}
   spawnDistance: 10
   platformLength: 10
   upperPlatformHeight: 2
